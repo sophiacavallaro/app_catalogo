@@ -19,14 +19,14 @@ class Produto {
     return Produto(
       nomeProduto: json['nome_produto'],
       categoria: json['categoria'],
-      preco: json['preco'].toDouble(),
+      preco: (json['preco'] as num).toDouble(),
       quantidadeEstoque: json['quantidade_estoque'],
-      disponivel: json['disponível'],
+      disponivel: json['disponivel'],
       tags: List<String>.from(json['tags']),
     );
   }
 
   bool get temEstoqueCritico {
-    return quantidadeEstoque <= 5;
+    return quantidadeEstoque < 5;
   }
 }
